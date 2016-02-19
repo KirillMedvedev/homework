@@ -1,0 +1,25 @@
+1. As accountant, I want to show men on Console screen, so that I can see them all
+   Acceptance criteria:
+   - pass pipe-delimited catalog into application, see men listed on screen in the same order
+
+2. As operator, I want to query the whole catalog from server
+   Acceptance: 
+   - pre-stored on server catalog is exposed via service as json
+   
+3. As operator, I want to add people to catalog, so that they could be accessed later
+   Acceptance:
+   - add 2 persons, query them all, they should appear in the same order
+   - add duplicate person, observe that system contains only one
+
+4. As operator, I want to query all the men from server in 3 basic orders
+   Acceptance:
+   - add several persons, view by gender, birthdate, name
+
+5. As accountant, I want to see the whole catalog in 3 basic orders:
+   Acceptance: 
+   - feed file with people list to console app, see 3 outputs
+
+6. As accountant&operator (role?), I want to populate catalog from files in different formats
+   Acceptance:
+   - console app receives 3 files in 3 formats, and lists catalog in 3 modes
+   - service receives records in 3 formats and able to list catalog in all modes
