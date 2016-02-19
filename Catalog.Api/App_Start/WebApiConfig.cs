@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using WebApiContrib.Formatting;
 
 namespace Catalog.Api
 {
@@ -16,6 +17,8 @@ namespace Catalog.Api
                 routeTemplate: "{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.Insert(0, new PlainTextFormatter());
         }
     }
 }

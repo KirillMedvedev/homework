@@ -73,7 +73,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="given_running_catalog_api_service\when_retrieving_catalog.cs" />
+    <Compile Include="given_catalog_api_service\when_populating_and_retrieving_catalog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

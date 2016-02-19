@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using bd.mstest;
 using FluentAssertions;
 
 namespace Catalog.Domain.Tests.Catalog.given_two_different_men
@@ -9,20 +7,16 @@ namespace Catalog.Domain.Tests.Catalog.given_two_different_men
     using Domain;
 
     [TestClass]
-    public class when_adding_them_to_catalog : SUT
+    public class when_adding_them_to_catalog : TwoMenCatalog
     {
-        protected override void Arrange()
+        protected override Man GetFirstMan()
         {
-            firstMan = new Man("Cunningham", "Ward", "Male", "black", "5/26/1949");
-            secondMan = new Man("McCartney", "Jim", "Male", "white", "1/1/1950");
-
-            catalog = new Catalog();
+            return new Man("Cunningham", "Ward", "Male", "black", "5/26/1949");
         }
 
-        protected override void Act()
+        protected override Man GetSecondMan()
         {
-            catalog.Add(firstMan, secondMan);
-            catalogContent = catalog.GetAll();
+            return new Man("McCartney", "Jim", "Male", "white", "1/1/1950");
         }
 
         [TestMethod]
@@ -42,10 +36,5 @@ namespace Catalog.Domain.Tests.Catalog.given_two_different_men
         {
             catalogContent.Last().Should().Be(secondMan);
         }
-
-        private Man firstMan;
-        private Man secondMan;
-        private Catalog catalog;
-        private IEnumerable<Man> catalogContent;
     }
 }

@@ -11,21 +11,6 @@ namespace Catalog.Api.Controllers
         static RecordsController()
         {
             catalog = new Catalog();
-
-            PopulateCatalogWithSamples();
-        }
-
-        private static void PopulateCatalogWithSamples()
-        {
-            var script = "Fowler | Martin | Male | Blue | 1963\r\n" +
-                         "Kent | Beck | Male | Green | 1961";
-
-            var parser = new ManGrammarParser(script);
-            parser.Parse();
-
-            var list = parser.GetMen();
-
-            catalog.Add(list.ToArray());
         }
 
         [Route("records/{mode:alpha}")]
@@ -39,9 +24,13 @@ namespace Catalog.Api.Controllers
             return new[] { new Man("empty", "empty", "empty", "empty", "empty")  };
         }
 
-        // POST: api/Records
         public void Post([FromBody]string value)
         {
+            var parser = new ManGrammarParser(value);
+            parser.Parse();
+
+            var men = parser.GetMen();
+            catalog.Add(men.ToArray());
         }
 
         static Catalog catalog;

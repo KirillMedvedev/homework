@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace Catalog.Domain
 {
@@ -8,19 +7,31 @@ namespace Catalog.Domain
         public Catalog()
         {
             catalog = new List<Man>();
+            sync = new object();
+
         }
 
         public IEnumerable<Man> GetAll()
         {
-            return catalog;
+            lock (sync)
+            {
+                return catalog;
+            }
         }
 
-        //TODO: Make collection thread safe for rest service!
         public void Add(params Man[] men)
         {
-            catalog = men.ToList();
+            lock (sync)
+            {
+                foreach (var each in men)
+                {
+                    if (!catalog.Contains(each))
+                        catalog.Add(each);
+                }
+            }
         }
 
         private List<Man> catalog;
+        private object sync;
     }
 }
