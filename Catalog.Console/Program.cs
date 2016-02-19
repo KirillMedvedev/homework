@@ -1,21 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Catalog.Domain;
+using System.Linq;
 
 namespace Catalog.Console
 {
+    using System;
+    using Domain;
+
     class Program
     {
         static void Main(string[] args)
         {
             var script = File.ReadAllText(args[0]);
 
-            var catalog = ParseMen(script);
+            var men = ParseMen(script);
+            var catalog = new Catalog();
+            catalog.Add(men.ToArray());
 
-            foreach (var each in catalog)
-            {
-                System.Console.WriteLine(each);
-            }
+            Console.WriteLine(new GenderLastnameReport(catalog).Compose());
+            Console.WriteLine(new BirthdateReport(catalog).Compose());
+            Console.WriteLine(new LastNameReport(catalog).Compose());
         }
 
         static IEnumerable<Man> ParseMen(string script)

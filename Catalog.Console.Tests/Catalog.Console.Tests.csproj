@@ -66,6 +66,10 @@
   <ItemGroup>
     <Compile Include="ConsoleClient\given_one_catalog_file\when_running_application.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reprots\when_composing_birthdate_report.cs" />
+    <Compile Include="Reprots\when_composing_gender_last_name_report.cs" />
+    <Compile Include="Reprots\ReportWith3Men.cs" />
+    <Compile Include="Reprots\when_composing_lastname_report.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -74,6 +78,10 @@
     <ProjectReference Include="..\Catalog.Console\Catalog.Console.csproj">
       <Project>{f5808beb-ee2a-4cf2-ae80-4d814cf9ab18}</Project>
       <Name>Catalog.Console</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Catalog.Domain\Catalog.Domain.csproj">
+      <Project>{b247067d-9663-4f82-afde-c0556638d7e1}</Project>
+      <Name>Catalog.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -42,9 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ManGrammarParser.cs" />
+    <Compile Include="BirthdateReport.cs" />
+    <Compile Include="GenderLastnameReport.cs" />
+    <Compile Include="LastNameReport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
