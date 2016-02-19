@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Catalog.Console
 {
@@ -6,15 +8,22 @@ namespace Catalog.Console
     {
         static void Main(string[] args)
         {
-            var fileName = args[0];
+            var script = File.ReadAllText(args[0]);
 
-            var parser = new ManGrammarParser(File.ReadAllText(fileName));
-            parser.Parse();
+            var catalog = ParseMen(script);
 
-            foreach (var each in parser.GetMen())
+            foreach (var each in catalog)
             {
                 System.Console.WriteLine(each);
             }
+        }
+
+        static IEnumerable<Man> ParseMen(string script)
+        {
+            var parser = new ManGrammarParser(script);
+            parser.Parse();
+
+            return parser.GetMen();
         }
     }
 }

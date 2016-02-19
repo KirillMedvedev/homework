@@ -68,11 +68,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Catalog\given_two_different_men\when_adding_them_to_catalog.cs" />
+    <Compile Include="Catalog\given_type\when_instantiating.cs" />
     <Compile Include="ManGrammarParser\given_man_grammar_parser\when_instantiating.cs" />
     <Compile Include="ManGrammarParser\given_pipe_delimited_script\when_parsing.cs" />
     <Compile Include="Man\given_man\when_representing_as_string.cs" />
     <Compile Include="Man\given_type\when_instantiating.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +85,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
