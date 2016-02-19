@@ -72,8 +72,11 @@
     <Compile Include="Catalog\TwoMenCatalog.cs" />
     <Compile Include="Catalog\given_two_different_men\when_adding_them_to_catalog.cs" />
     <Compile Include="Catalog\given_type\when_instantiating.cs" />
+    <Compile Include="ManGrammarParser\given_man_grammar_parser\ParserUnderTest.cs" />
     <Compile Include="ManGrammarParser\given_man_grammar_parser\when_instantiating.cs" />
-    <Compile Include="ManGrammarParser\given_pipe_delimited_script\when_parsing.cs" />
+    <Compile Include="ManGrammarParser\given_man_grammar_parser\when_parsing_space_delimited_script.cs" />
+    <Compile Include="ManGrammarParser\given_man_grammar_parser\when_parsing_comma_delimited_script.cs" />
+    <Compile Include="ManGrammarParser\given_man_grammar_parser\when_parsing_pipe_delimited_script.cs" />
     <Compile Include="Man\given_man\when_representing_as_string.cs" />
     <Compile Include="Man\given_two_identical_men\when_comparing.cs" />
     <Compile Include="Man\given_type\when_instantiating.cs" />

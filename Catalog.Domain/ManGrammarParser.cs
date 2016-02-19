@@ -26,7 +26,7 @@ namespace Catalog.Domain
 
         private Man ParseHuman(string humanRecord)
         {
-            var attributes = humanRecord.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries);
+            var attributes = humanRecord.Split(new[] { " | ", ", ", " " }, StringSplitOptions.RemoveEmptyEntries);
 
             return new Man(lastName: attributes[0], name: attributes[1], gender: attributes[2], favoriteColor: attributes[3], birthdate: DateTime.Parse(attributes[4]));
         }
