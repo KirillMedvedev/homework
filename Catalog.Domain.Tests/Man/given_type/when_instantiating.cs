@@ -2,9 +2,9 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Catalog.Console.Tests.Man.given_type
+namespace Catalog.Domain.Tests.Man.given_type
 {
-    using Console;
+    using Domain;
 
     [TestClass]
     public class when_instantiating : SUT

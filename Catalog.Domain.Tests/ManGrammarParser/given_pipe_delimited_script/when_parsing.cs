@@ -5,8 +5,10 @@ using FluentAssertions;
 using KellermanSoftware.CompareNetObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Catalog.Console.Tests.ManGrammarParser.given_pipe_delimited_script
+namespace Catalog.Domain.Tests.ManGrammarParser.given_pipe_delimited_script
 {
+    using Domain;
+
     [TestClass]
     public class when_parsing : SUT
     {
@@ -16,7 +18,7 @@ namespace Catalog.Console.Tests.ManGrammarParser.given_pipe_delimited_script
                      "Kent | Beck | Male | Green | 1961" + Environment.NewLine +
                      "Martin | Robert | Male | Yellow | 1952";
 
-            parser = new Console.ManGrammarParser(script);
+            parser = new ManGrammarParser(script);
         }
 
         protected override void Act()
@@ -28,11 +30,11 @@ namespace Catalog.Console.Tests.ManGrammarParser.given_pipe_delimited_script
         [TestMethod]
         public void then_people_parpsed_correctly()
         {
-            var expectedMen = new List<Console.Man>
+            var expectedMen = new List<Man>
             {
-                new Console.Man("Fowler", "Martin", "Male", "Blue", "1963"),
-                new Console.Man("Kent", "Beck", "Male", "Green", "1961"),
-                new Console.Man("Martin", "Robert", "Male", "Yellow", "1952"),
+                new Man("Fowler", "Martin", "Male", "Blue", "1963"),
+                new Man("Kent", "Beck", "Male", "Green", "1961"),
+                new Man("Martin", "Robert", "Male", "Yellow", "1952"),
             };
 
             var compareLogic = new CompareLogic();
@@ -42,7 +44,7 @@ namespace Catalog.Console.Tests.ManGrammarParser.given_pipe_delimited_script
         }
 
         private string script;
-        private Console.ManGrammarParser parser;
-        private IEnumerable<Console.Man> actualMen;
+        private ManGrammarParser parser;
+        private IEnumerable<Man> actualMen;
     }
 }

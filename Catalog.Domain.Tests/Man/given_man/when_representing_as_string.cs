@@ -2,9 +2,9 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Catalog.Console.Tests.Man.given_man
+namespace Catalog.Domain.Tests.Man.given_man
 {
-    using Console;
+    using Domain;
 
     [TestClass]
     public class when_representing_as_string : SUT

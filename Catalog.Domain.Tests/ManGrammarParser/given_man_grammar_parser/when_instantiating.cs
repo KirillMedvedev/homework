@@ -2,9 +2,9 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Catalog.Console.Tests.ManGrammarParser.given_man_grammar_parser
+namespace Catalog.Domain.Tests.ManGrammarParser.given_man_grammar_parser
 {
-    using Console;
+    using Domain;
 
     [TestClass]
     public class when_instantiating : SUT
