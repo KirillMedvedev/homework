@@ -64,7 +64,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ConsoleClient\given_one_catalog_file\when_running_application.cs" />
+    <Compile Include="ConsoleClient\given_three_catalog_files\when_running_application.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reprots\when_composing_birthdate_report.cs" />
     <Compile Include="Reprots\when_composing_gender_last_name_report.cs" />
@@ -85,7 +85,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ConsoleClient\given_one_catalog_file\PipeDelimitedList.txt">
+    <None Include="ConsoleClient\given_three_catalog_files\PipeDelimitedList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ConsoleClient\given_three_catalog_files\CommaDelimitedList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ConsoleClient\given_three_catalog_files\SpaceDelimitedList.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

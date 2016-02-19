@@ -9,20 +9,35 @@ namespace Catalog.Console
 
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] inputFiles)
         {
-            var script = File.ReadAllText(args[0]);
+            var catalog = ReadCatalog(inputFiles);
 
-            var men = ParseMen(script);
-            var catalog = new Catalog();
-            catalog.Add(men.ToArray());
+            ShowReports(catalog);
+        }
 
+        private static void ShowReports(Catalog catalog)
+        {
             Console.WriteLine(new GenderLastnameReport(catalog).Compose());
             Console.WriteLine(new BirthdateReport(catalog).Compose());
             Console.WriteLine(new LastNameReport(catalog).Compose());
         }
 
-        static IEnumerable<Man> ParseMen(string script)
+        private static Catalog ReadCatalog(string[] inputFiles)
+        {
+            var catalog = new Catalog();
+
+            foreach (var eachInputFile in inputFiles)
+            {
+                var script = File.ReadAllText(eachInputFile);
+                var men = ParseMen(script);
+                catalog.Add(men.ToArray());
+            }
+
+            return catalog;
+        }
+
+        private static IEnumerable<Man> ParseMen(string script)
         {
             var parser = new ManGrammarParser(script);
             parser.Parse();
