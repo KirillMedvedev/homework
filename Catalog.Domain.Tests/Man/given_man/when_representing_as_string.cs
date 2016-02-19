@@ -1,4 +1,5 @@
-﻿using bd.mstest;
+﻿using System;
+using bd.mstest;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,7 +12,7 @@ namespace Catalog.Domain.Tests.Man.given_man
     {
         protected override void Arrange()
         {
-            man = new Man("Cohn", "Mike", "Male", "Pink", "1960");
+            man = new Man("Cohn", "Mike", "Male", "Pink", new DateTime(1960, 1, 1));
         }
 
         protected override void Act()
@@ -22,7 +23,7 @@ namespace Catalog.Domain.Tests.Man.given_man
         [TestMethod]
         public void then_string_representation_is_correct()
         {
-            manAsString.Should().Be("Mike Cohn, born in 1960, loves Pink color, is a Male");
+            manAsString.Should().Be("Mike Cohn, born in 1/1/1960, loves Pink color, is a Male");
         }
 
         private Man man;

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using Catalog.Domain;
 
 namespace Catalog.Console
 {
@@ -28,7 +30,7 @@ namespace Catalog.Console
         {
             var attributes = humanRecord.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries);
 
-            return new Man(lastName: attributes[0], name: attributes[1], gender: attributes[2], favoriteColor: attributes[3], birthday: attributes[4]);
+            return new Man(lastName: attributes[0], name: attributes[1], gender: attributes[2], favoriteColor: attributes[3], birthdate: DateTime.ParseExact(attributes[4], "M/d/yyyy", CultureInfo.InvariantCulture));
         }
 
         private string script;

@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Catalog.Domain.Tests.Catalog.given_two_identical_men
@@ -10,12 +11,12 @@ namespace Catalog.Domain.Tests.Catalog.given_two_identical_men
     {
         protected override Man GetFirstMan()
         {
-            return new Man("Cunningham", "Ward", "Male", "black", "5/26/1949");
+            return new Man("Cunningham", "Ward", "Male", "black", new DateTime(1949, 5, 26));
         }
 
         protected override Man GetSecondMan()
         {
-            return new Man("Cunningham", "Ward", "Male", "black", "5/26/1949");
+            return new Man("Cunningham", "Ward", "Male", "black", new DateTime(1949, 5, 26));
         }
 
         [TestMethod]

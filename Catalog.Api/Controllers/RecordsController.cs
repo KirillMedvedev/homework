@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
@@ -16,12 +17,16 @@ namespace Catalog.Api.Controllers
         [Route("records/{mode:alpha}")]
         public IEnumerable<Man> Get(string mode)
         {
-            if (mode == "all")
-            {
-                return catalog.GetAll();
-            }
+            if (mode == "gender")
+                return catalog.GetAll().OrderBy(x => x.Gender);
+            
+            if (mode == "birthdate")
+                return catalog.GetAll().OrderBy(x => x.Birthdate);
 
-            return new[] { new Man("empty", "empty", "empty", "empty", "empty")  };
+            if (mode == "name")
+                return catalog.GetAll().OrderBy(x => x.Name);
+
+            return catalog.GetAll();
         }
 
         public void Post([FromBody]string value)

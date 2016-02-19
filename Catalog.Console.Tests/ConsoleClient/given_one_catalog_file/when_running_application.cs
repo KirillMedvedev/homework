@@ -34,9 +34,9 @@ namespace Catalog.Console.Tests.ConsoleClient.given_one_catalog_file
         [TestMethod]
         public void then_application_prints_original_catalog()
         {
-            var expected = "Martin Fowler, born in 1963, loves Blue color, is a Male" + "\r\n" +
-                           "Beck Kent, born in 1961, loves Green color, is a Male" + "\r\n" +
-                           "Robert Martin, born in 1952, loves Yellow color, is a Male" + "\r\n";
+            var expected = "Martin Fowler, born in 1/10/1963, loves Blue color, is a Male" + "\r\n" +
+                           "Beck Kent, born in 2/20/1961, loves Green color, is a Male" + "\r\n" +
+                           "Robert Martin, born in 3/30/1952, loves Yellow color, is a Male" + "\r\n";
 
             output.Should().Be(expected);
         }

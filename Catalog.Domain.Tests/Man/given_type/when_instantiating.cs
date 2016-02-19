@@ -1,4 +1,5 @@
-﻿using bd.mstest;
+﻿using System;
+using bd.mstest;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,7 +12,7 @@ namespace Catalog.Domain.Tests.Man.given_type
     {
         protected override void Arrange()
         {
-            man = new Man("surname", "name", "male", "red", "2000");
+            man = new Man("surname", "name", "male", "red", new DateTime(2000, 1, 1));
         }
 
         [TestMethod]
@@ -35,7 +36,7 @@ namespace Catalog.Domain.Tests.Man.given_type
         [TestMethod]
         public void then_birthday_is_set()
         {
-            man.Birthday.Should().Be("2000");
+            man.Birthdate.Should().Be(new DateTime(2000, 1, 1));
         }
 
         [TestMethod]

@@ -14,9 +14,9 @@ namespace Catalog.Domain.Tests.ManGrammarParser.given_pipe_delimited_script
     {
         protected override void Arrange()
         {
-            script = "Fowler | Martin | Male | Blue | 1963" + Environment.NewLine +
-                     "Kent | Beck | Male | Green | 1961" + Environment.NewLine +
-                     "Martin | Robert | Male | Yellow | 1952";
+            script = "Fowler | Martin | Male | Blue | 1/10/1963" + Environment.NewLine +
+                     "Kent | Beck | Male | Green | 2/20/1961" + Environment.NewLine +
+                     "Martin | Robert | Male | Yellow | 3/30/1952";
 
             parser = new ManGrammarParser(script);
         }
@@ -32,9 +32,9 @@ namespace Catalog.Domain.Tests.ManGrammarParser.given_pipe_delimited_script
         {
             var expectedMen = new List<Man>
             {
-                new Man("Fowler", "Martin", "Male", "Blue", "1963"),
-                new Man("Kent", "Beck", "Male", "Green", "1961"),
-                new Man("Martin", "Robert", "Male", "Yellow", "1952"),
+                new Man("Fowler", "Martin", "Male", "Blue", new DateTime(1963, 1, 10)),
+                new Man("Kent", "Beck", "Male", "Green", new DateTime(1961, 2, 20)),
+                new Man("Martin", "Robert", "Male", "Yellow", new DateTime(1952, 3, 30))
             };
 
             var compareLogic = new CompareLogic();

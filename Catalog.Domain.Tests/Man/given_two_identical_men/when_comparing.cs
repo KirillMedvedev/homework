@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using bd.mstest;
 using FluentAssertions;
 
@@ -11,8 +12,8 @@ namespace Catalog.Domain.Tests.Man.given_two_identical_men
     {
         protected override void Arrange()
         {
-            firstMan = new Man("Gamma", "Erich", "Male", "orange", "3/13/1954");
-            secondMan = new Man("Gamma", "Erich", "Male", "orange", "3/13/1954");
+            firstMan = new Man("Gamma", "Erich", "Male", "orange", new DateTime(1954, 3, 13));
+            secondMan = new Man("Gamma", "Erich", "Male", "orange", new DateTime(1954, 3, 13));
         }
 
         protected override void Act()
